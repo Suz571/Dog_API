@@ -29,6 +29,7 @@ function displayResults(responseJson){
        let combinedString = imgHtmlStrings.join('');
        //display combined <img> string created in results-img 
        $('.results-img').html(combinedString);
+       $('.results').removeClass('hidden');
    }
 
 function runForm(){
