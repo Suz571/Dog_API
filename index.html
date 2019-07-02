@@ -11,15 +11,18 @@
 <body>
     <main>
         <h1>See some dogs!</h1>
-        <form action = "https://dog.ceo/api/breeds/image/random/3" method ="get">
+        <form>
             <label>Number of Dogs</label><span class="required"></span>
-            <input type="number" class="num-dogs" placeholder="1-50" required pattern =" 1- 50" value = "3"> 
+            <input type="number" id="num-dogs" placeholder="1 - 50" value="3"> 
             
             <input type="submit" class="submit" value="Get your dog pics!">
         </form>
-        <div class="results hidden">
+        <div class="results">
             <h2>Here are your dogs!</h2>
-            <img class="results-img" alt="images of random dogs">
+            <div class="imgContainer">
+
+            </div>
+            
         </div>
 
     </main>

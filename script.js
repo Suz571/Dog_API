@@ -1,7 +1,17 @@
 $(document).ready(function(){
-    
+
+
+
     function getDogPics(){
-        fetch('https://dog.ceo/api/breeds/image/random/3')
+        let api = 'https://dog.ceo/api/breeds/image/random';
+        let userNum = $('#num-dogs').val();
+        //let userNum = document.getElementById('num-dogs');        
+        let apiPath = api + '/'+ userNum;
+        console.log(userNum);
+        //console.log(userNum.value);
+        console.log(apiPath);
+
+        fetch(apiPath)
         .then(response => response.json())
         .then(responseJson =>
             displayResults(responseJson))
@@ -12,12 +22,7 @@ $(document).ready(function(){
 
 function displayResults(responseJson){
         console.log(responseJson);
-        /*
-        for (i =0; i< responseJson.message.length; i++){
-            $('.results-img').replaceWith(`<img src="${responseJson.message}" class="results-img"></img>`);
-            $('.results').removeClass('hidden');
-        }
-        */
+        
        //responseJson === {status:" ", message: [""]}
        //output is 3 <img> displayed .results-img
 
@@ -25,12 +30,15 @@ function displayResults(responseJson){
        let imgHtmlStrings = responseJson.message.map(imgUrlString => { 
        return `<img src="${imgUrlString}" class="results-img"></img>`
        });
+
        //combine seperate <img> strings into one. 
        let combinedString = imgHtmlStrings.join('');
        //display combined <img> string created in results-img 
-       $('.results-img').html(combinedString);
-       $('.results').removeClass('hidden');
+       $('.imgContainer').html(combinedString);
+       //$('.results').removeClass('hidden');
    }
+
+
 
 function runForm(){
     $('form').submit(e => {
@@ -47,3 +55,14 @@ runForm();
 
 
 })
+
+
+
+/*
+function displayResults(responseJson){
+    let responseArr = responseJson.message;
+
+    document.getElementById('imgContainer').innerHTML = '<img src"'+ responseArr.join('" /><img src = "') + '" />';
+}
+
+*/

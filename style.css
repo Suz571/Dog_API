@@ -11,4 +11,8 @@
     margin: 0 auto;
   }
   
+  #imageContainer img {
+    width: 5%;
+    height: 5%;
+}
   
