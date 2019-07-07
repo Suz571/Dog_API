@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-
-
     function getRandomDogPics(){
         let api = 'https://dog.ceo/api/breeds/image/random';
         let userNum = $('#num-dogs').val();
@@ -38,33 +36,6 @@ function displayNumResults(responseJson){
        $('.results').removeClass('hidden');
    }
 
-function getDogBreed(){
-    let api2 = 'https://dog.ceo/api/breed';
-    let userText = $('#breeds').val();
-    let apiPath2 = api2 + '/'+ userText + '/images/random';
-    console.log(userText);
-    console.log(apiPath2);
-
-    fetch(apiPath2)
-    .then(response => response.json())
-    .then(responseJson =>
-        displayBreedResults(responseJson))
-    .catch(error => alert("Breed not found, try again."));
-
-}
-
-function displayBreedResults(responseJson){
-    console.log(responseJson);
-   let imgHtmlStrings = responseJson.message.map(imgUrlString => { 
-   return `<img src="${imgUrlString}" class="results2-img"></img>`
-   });
-
-   //combine seperate <img> strings into one. 
-   let combinedString = imgHtmlStrings.join('');
-   //display combined <img> string created in results-img 
-   $('.imgContainer2').html(combinedString);
-   $('.results2').removeClass('hidden');
-}
 
 
 
@@ -76,18 +47,7 @@ function runForm(){
     });
 }
 
-function runForm2(){
-    $('form').submit(e=> {
-        e.preventDefault();
-        getDogBreed();
-    });
-
-}
-
 runForm();
-runForm2();
-
-
 
 })
 
