@@ -18,14 +18,14 @@ function getDogBreed(){
 function displayBreedResults(responseJson){
     console.log(responseJson);
    let imgHtmlStrings = responseJson.message.map(imgUrlString => { 
-   return `<img src="${imgUrlString}" class="results2-img"></img>`
+   return `<img src="${imgUrlString}" class="results-img"></img>`
    });
 
    //combine seperate <img> strings into one. 
    let combinedString = imgHtmlStrings.join('');
    //display combined <img> string created in results-img 
-   $('.imgContainer2').html(combinedString);
-   $('.results2').removeClass('hidden');
+   $('.imgContainer').html(combinedString);
+   $('.results').removeClass('hidden');
 }
 
 
