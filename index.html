@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dog API Assignments</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <h1>See some dogs!</h1>
+        <div class ="dogs">
+            <form>
+                <label>Number of Dogs</label><span class="required"></span>
+                <input type="number" id="num-dogs" placeholder="1 - 50" value="3"> 
+                
+                <input type="submit" class="submit" value="Get your dog pics!">
+            </form>
+            <div class="results hidden">
+                <h2>Here are your dogs!</h2>
+                <div class="imgContainer">
+
+            </div>
+            
+        </div>
+
+        <div class="dogs">
+            <form>
+                <label>Dogs by Breed</label><span class="required"></span>
+                <input type="text" id="breeds" placeholder="German Shepard" value="German Shepard"> 
+                
+                <input type="submit" class="submit" value="Get your dog pics!">
+            </form>
+            <div class="results2 hidden">
+                <h2>Here are your dogs!</h2>
+                <div class="imgContainer2">
+
+            </div>
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
