@@ -3,7 +3,7 @@ $(document).ready(function(){
 function getDogBreed(){
     let api2 = 'https://dog.ceo/api/breed';
     let userText = $('#breeds').val();
-    let apiPath2 = api2 + '/'+ userText + '/images/random';
+    let apiPath2 = api2+'/'+userText+'/images/random';
     console.log(userText);
     console.log(apiPath2);
 

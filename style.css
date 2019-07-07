@@ -10,11 +10,6 @@ main {
     max-width: 600px;
     margin: 0 auto;
   }
-  
-#imageContainer img {
-    width: 5%;
-    height: 5%;
-}
 
 #imageContainer2 img {
   width: 5%;
@@ -23,8 +18,4 @@ main {
 
 .hidden {
   display: none;
-}
-
-.dogs{
-  margin: 20px;
 }
