@@ -41,23 +41,22 @@ function displayNumResults(responseJson){
 function getDogBreed(){
     let api2 = 'https://dog.ceo/api/breed';
     let userText = $('#breeds').val();
-    //let userNum = document.getElementById('num-dogs');        
-    let apiPath2 = api2 + '/'+ userText + '/images';
+    let apiPath2 = api2 + '/'+ userText + '/images/random';
     console.log(userText);
-    //console.log(userNum.value);
     console.log(apiPath2);
 
     fetch(apiPath2)
     .then(response => response.json())
     .then(responseJson =>
         displayBreedResults(responseJson))
-    .catch(error => alert("Something went wrong, try again."));
+    .catch(error => alert("Breed not found, try again."));
 
 }
+
 function displayBreedResults(responseJson){
     console.log(responseJson);
    let imgHtmlStrings = responseJson.message.map(imgUrlString => { 
-   return `<img src="${imgUrlString}" class="results-img"></img>`
+   return `<img src="${imgUrlString}" class="results2-img"></img>`
    });
 
    //combine seperate <img> strings into one. 
