@@ -2,17 +2,29 @@
     box-sizing: border-box;
   }
   
-  body {
+body {
     font-family: 'Roboto', sans-serif;
   }
   
-  main {
+main {
     max-width: 600px;
     margin: 0 auto;
   }
   
-  #imageContainer img {
+#imageContainer img {
     width: 5%;
     height: 5%;
 }
-  
+
+#imageContainer2 img {
+  width: 5%;
+  height: 5%;
+}
+
+.hidden {
+  display: none;
+}
+
+.dogs{
+  margin: 20px;
+}

@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
 
-    function getDogPics(){
+    function getRandomDogPics(){
         let api = 'https://dog.ceo/api/breeds/image/random';
         let userNum = $('#num-dogs').val();
         //let userNum = document.getElementById('num-dogs');        
@@ -14,13 +14,13 @@ $(document).ready(function(){
         fetch(apiPath)
         .then(response => response.json())
         .then(responseJson =>
-            displayResults(responseJson))
+            displayNumResults(responseJson))
         .catch(error => alert("Something went wrong, try again."));
 
    }
 
 
-function displayResults(responseJson){
+function displayNumResults(responseJson){
         console.log(responseJson);
         
        //responseJson === {status:" ", message: [""]}
@@ -35,22 +35,58 @@ function displayResults(responseJson){
        let combinedString = imgHtmlStrings.join('');
        //display combined <img> string created in results-img 
        $('.imgContainer').html(combinedString);
-       //$('.results').removeClass('hidden');
+       $('.results').removeClass('hidden');
    }
+
+function getDogBreed(){
+    let api2 = 'https://dog.ceo/api/breed';
+    let userText = $('#breeds').val();
+    //let userNum = document.getElementById('num-dogs');        
+    let apiPath2 = api2 + '/'+ userText + '/images';
+    console.log(userText);
+    //console.log(userNum.value);
+    console.log(apiPath2);
+
+    fetch(apiPath2)
+    .then(response => response.json())
+    .then(responseJson =>
+        displayBreedResults(responseJson))
+    .catch(error => alert("Something went wrong, try again."));
+
+}
+function displayBreedResults(responseJson){
+    console.log(responseJson);
+   let imgHtmlStrings = responseJson.message.map(imgUrlString => { 
+   return `<img src="${imgUrlString}" class="results-img"></img>`
+   });
+
+   //combine seperate <img> strings into one. 
+   let combinedString = imgHtmlStrings.join('');
+   //display combined <img> string created in results-img 
+   $('.imgContainer2').html(combinedString);
+   $('.results2').removeClass('hidden');
+}
 
 
 
 function runForm(){
     $('form').submit(e => {
         e.preventDefault();
-        getDogPics();
+        getRandomDogPics();
+        
     });
 }
 
+function runForm2(){
+    $('form').submit(e=> {
+        e.preventDefault();
+        getDogBreed();
+    });
+
+}
+
 runForm();
-
-
-
+runForm2();
 
 
 
