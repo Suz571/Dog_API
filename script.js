@@ -14,18 +14,12 @@ function getDogBreed(){
     .catch(error => alert("Breed not found, try again."));
 
 }
-
 function displayBreedResults(responseJson){
-    console.log(responseJson);
-   let imgHtmlStrings = responseJson.message.map(imgUrlString => { 
-   return `<img src="${imgUrlString}" class="results-img"></img>`
-   });
-
-   //combine seperate <img> strings into one. 
-   let combinedString = imgHtmlStrings.join('');
-   //display combined <img> string created in results-img 
-   $('.imgContainer').html(combinedString);
-   $('.results').removeClass('hidden');
+     console.log(responseJson);
+    let imgHtmlStrings = `<img src="${responseJson.message}" class= "results-img"></img>`;
+    console.log(imgHtmlStrings);
+    $('.imgContainer').html(imgHtmlStrings);
+    $('.results').removeClass('hidden');
 }
 
 
@@ -44,7 +38,20 @@ runForm2();
 
 })
 
+/*
+function displayBreedResults(responseJson){
+    console.log(responseJson);
+   let imgHtmlStrings = responseJson.message.map(imgUrlString => { 
+   return `<img src="${imgUrlString}" class="results-img"></img>`
+   });
 
+   //combine seperate <img> strings into one. 
+   let combinedString = imgHtmlStrings.join('');
+   //display combined <img> string created in results-img 
+   $('.imgContainer').html(combinedString);
+   $('.results').removeClass('hidden');
+}
+*/
 
 /*
 function displayResults(responseJson){
