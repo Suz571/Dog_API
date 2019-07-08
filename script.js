@@ -8,12 +8,20 @@ function getDogBreed(){
     console.log(apiPath2);
 
     fetch(apiPath2)
+    .then(status)
     .then(response => response.json())
     .then(responseJson =>
         displayBreedResults(responseJson))
-    .catch(error => alert("Breed not found, try again."));
+    //.catch(error => alert("Breed not found, try again."));
 
 }
+function status(response){
+    if(!response.ok){
+        throw alert("Breed not found, try again.");
+    }
+    return response;
+}
+
 function displayBreedResults(responseJson){
      console.log(responseJson);
     let imgHtmlStrings = `<img src="${responseJson.message}" class= "results-img"></img>`;
