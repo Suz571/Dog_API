@@ -2,18 +2,21 @@ $(document).ready(function(){
 
     function getRandomDogPics(){
         let api = 'https://dog.ceo/api/breeds/image/random';
-        let userNum = $('#num-dogs').val();
-        //let userNum = document.getElementById('num-dogs');        
+        let userNum = $('#num-dogs').val();    
         let apiPath = api + '/'+ userNum;
         console.log(userNum);
-        //console.log(userNum.value);
         console.log(apiPath);
+
+        if (userNum > 50){
+            throw alert('Too many Dogs! Please choose a number 1-50');
+        }else{
 
         fetch(apiPath)
         .then(response => response.json())
         .then(responseJson =>
             displayNumResults(responseJson))
         .catch(error => alert("Something went wrong, try again."));
+        };
 
    }
 
